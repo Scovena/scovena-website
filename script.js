@@ -122,3 +122,27 @@ cookieCloseButtons.forEach(button => button.addEventListener("click", closeCooki
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && cookieModal && !cookieModal.hidden) closeCookieModal();
 });
+
+
+// Quotation request modal
+const quoteModal = document.getElementById("quote-modal");
+const quoteOpenButtons = document.querySelectorAll("[data-open-quote-modal]");
+const quoteCloseButtons = document.querySelectorAll("[data-quote-close]");
+
+function openQuoteModal() {
+  if (!quoteModal) return;
+  quoteModal.hidden = false;
+  document.body.classList.add("dialog-open");
+}
+
+function closeQuoteModal() {
+  if (!quoteModal) return;
+  quoteModal.hidden = true;
+  document.body.classList.remove("dialog-open");
+}
+
+quoteOpenButtons.forEach(button => button.addEventListener("click", openQuoteModal));
+quoteCloseButtons.forEach(button => button.addEventListener("click", closeQuoteModal));
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && quoteModal && !quoteModal.hidden) closeQuoteModal();
+});
