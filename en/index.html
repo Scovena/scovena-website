@@ -55,7 +55,7 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-gold" href="mailto:info@scovena.com?subject=SCOVENA%20-%20Quotation%20Request&body=Hello%20SCOVENA%20team,%0D%0A%0D%0AI%20would%20like%20to%20contact%20you%20regarding%20a%20service%2Fquotation%20request.%0D%0A%0D%0ACompany%3A%20%0D%0AContact%20person%3A%20%0D%0APhone%3A%20%0D%0AService%20request%3A%20%0D%0A%0D%0AThank%20you.">Request a Quote</a>
+          <button type="button" class="btn btn-gold" data-open-quote-modal>Request a Quote</button>
           <a class="btn btn-outline" href="#services">Explore Services <span>→</span></a>
         </div>
       </div>
@@ -259,6 +259,22 @@
     </div>
   </div>
 </footer>
+
+
+<div class="quote-modal" id="quote-modal" hidden>
+  <div class="quote-modal-backdrop" data-quote-close></div>
+  <div class="quote-modal-card" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title">
+    <button type="button" class="quote-modal-close" aria-label="Close" data-quote-close>×</button>
+    <p class="section-kicker">QUOTATION REQUEST</p>
+    <h2 id="quote-modal-title">Send us your request</h2>
+    <p>Download and complete the Excel request form, then attach it to your email and send it to us.</p>
+    <p class="quote-modal-note">Note: For browser security reasons, a website cannot automatically attach an Excel file to your email.</p>
+    <div class="quote-modal-actions">
+      <a class="btn btn-gold" href="../assets/SCOVENA_Teklif_Talep_Formu.xlsx" download>Download Excel Form <span>↓</span></a>
+      <a class="btn btn-navy" href="mailto:info@scovena.com?subject=SCOVENA%20-%20Quotation%20Request&body=Hello%20SCOVENA%20team,%0D%0A%0D%0AI%20am%20attaching%20the%20completed%20request%20form.%0D%0A%0D%0ACompany%3A%20%0D%0AContact%20person%3A%20%0D%0APhone%3A%20%0D%0A%0D%0AThank%20you.">Write Email <span>→</span></a>
+    </div>
+  </div>
+</div>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie preferences" hidden>
   <div class="cookie-banner-inner">
