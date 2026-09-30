@@ -146,3 +146,40 @@ quoteCloseButtons.forEach(button => button.addEventListener("click", closeQuoteM
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && quoteModal && !quoteModal.hidden) closeQuoteModal();
 });
+
+
+// Email copy fallback for visitors without a configured mail app
+document.querySelectorAll("[data-copy-email]").forEach(button => {
+  button.addEventListener("click", async () => {
+    const email = "info@scovena.com";
+    let copied = false;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      copied = true;
+    } catch (e) {
+      const temp = document.createElement("textarea");
+      temp.value = email;
+      temp.setAttribute("readonly", "");
+      temp.style.position = "fixed";
+      temp.style.opacity = "0";
+      document.body.appendChild(temp);
+      temp.select();
+      try { copied = document.execCommand("copy"); } catch (err) {}
+      temp.remove();
+    }
+
+    const status = button.closest(".quote-modal-card")?.querySelector("[data-copy-status]");
+    if (copied) {
+      const original = button.textContent;
+      button.textContent = button.dataset.copySuccess || "Copied";
+      if (status) status.textContent = email;
+      setTimeout(() => {
+        button.textContent = original;
+        if (status) status.textContent = "";
+      }, 2200);
+    } else if (status) {
+      status.textContent = email;
+    }
+  });
+});
