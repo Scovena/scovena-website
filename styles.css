@@ -18,7 +18,7 @@ body{
   font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   color:var(--ink);background:#fff;line-height:1.5;
 }
-body.cookie-modal-open{overflow:hidden}
+body.cookie-modal-open,body.dialog-open{overflow:hidden}
 a{text-decoration:none;color:inherit}
 button{font:inherit}
 img{max-width:100%}
@@ -277,4 +277,26 @@ section[id],footer[id]{scroll-margin-top:90px}
   .cookie-banner{left:10px;right:10px;bottom:10px}
   .cookie-actions{flex-direction:column}
   .cookie-btn{width:100%}
+}
+
+
+/* Quotation request modal */
+.btn[type="button"]{border:0;cursor:pointer}
+.quote-modal[hidden]{display:none!important}
+.quote-modal{position:fixed;inset:0;z-index:1290;display:grid;place-items:center;padding:20px}
+.quote-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.58)}
+.quote-modal-card{
+  position:relative;z-index:1;width:min(620px,100%);background:#fff;border-radius:16px;
+  padding:32px;box-shadow:0 24px 70px rgba(0,0,0,.32)
+}
+.quote-modal-card h2{font-size:28px;line-height:1.2;margin:7px 0 14px}
+.quote-modal-card>p{font-size:14px;line-height:1.7;color:#5E6875;margin-bottom:10px}
+.quote-modal-card .quote-modal-note{font-size:12.5px;color:#7A8590;background:#F7F8FA;border-radius:8px;padding:10px 12px}
+.quote-modal-close{position:absolute;right:15px;top:11px;background:none;border:0;font-size:27px;cursor:pointer;color:#5E6875}
+.quote-modal-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.quote-modal-actions .btn{flex:1;min-width:190px}
+@media(max-width:560px){
+  .quote-modal-card{padding:26px 20px}
+  .quote-modal-actions{flex-direction:column}
+  .quote-modal-actions .btn{width:100%;min-width:0}
 }
