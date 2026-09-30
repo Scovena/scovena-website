@@ -300,3 +300,18 @@ section[id],footer[id]{scroll-margin-top:90px}
   .quote-modal-actions{flex-direction:column}
   .quote-modal-actions .btn{width:100%;min-width:0}
 }
+
+
+/* Email options in quotation modal */
+.quote-modal-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}
+.quote-modal-actions .btn{min-width:0;width:100%}
+.quote-modal-actions .quote-download{grid-column:1 / -1}
+.btn-mail{background:#F3F6F8;color:var(--navy);border:1px solid #D6DEE5}
+.btn-mail:hover{background:#EAF0F4}
+.btn-copy{background:#fff;color:var(--navy);border:1px solid var(--gold);cursor:pointer}
+.btn-copy:hover{background:#FBF6EA}
+.quote-copy-status{min-height:20px;margin-top:10px!important;font-size:12.5px!important;color:#66727E!important;text-align:center}
+@media(max-width:560px){
+  .quote-modal-actions{grid-template-columns:1fr}
+  .quote-modal-actions .quote-download{grid-column:auto}
+}
